@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grid Layout Version</title>
+
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+
+    body{background:#fff;color:#222}
+
+    /* ---------------- HEADER ---------------- */
+    header{
+        display:grid;
+        grid-template-columns:auto 1fr auto;
+        align-items:center;
+        background:linear-gradient(to right,#2c3e50 0%,#2c3e50 6%,#ff6b6b 6%,#ff6b6b 100%);
+        padding:0;
+        position:sticky;
+        top:0;
+        z-index:10;
+    }
+    .logo{
+        background:#2c3e50;
+        color:white;
+        font-weight:700;
+        padding:20px 40px;
+        font-size:20px;
+    }
+
+    nav{
+        display:flex;
+        justify-content:flex-end;
+        gap:35px;
+        padding-right:40px;
+    }
+
+    nav a{
+        color:white;
+        text-decoration:none;
+        font-size:15px;
+        font-weight:500;
+    }
+
+    .hamburger{
+        display:none;
+        flex-direction:column;
+        gap:4px;
+        padding:20px;
+        cursor:pointer;
+    }
+    .hamburger span{
+        height:3px;
+        width:25px;
+        background:white;
+    }
+
+    /* ---------------- HERO ---------------- */
+    .hero{
+        background:linear-gradient(135deg,#5b9bd5,#4a8bc2);
+        display:grid;
+        place-items:center;
+        text-align:center;
+        color:white;
+        padding:100px 20px;
+    }
+    .hero h1{font-size:52px;font-weight:700;margin-bottom:10px}
+    .hero p{font-size:22px}
+
+    /* ---------------- ABOUT SECTION ---------------- */
+    .about-section{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        min-height:400px;
+    }
+    .about-content{
+        background:#3d5568;
+        color:white;
+        padding:60px 40px;
+        display:grid;
+        gap:20px;
+        align-content:center;
+    }
+    .about-image{
+        background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200')
+        center/cover no-repeat;
+    }
+
+    /* ---------------- BOTTOM SECTIONS ---------------- */
+    .bottom-sections{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .offer-section{
+        background:#f4c67a;
+        text-align:center;
+        padding:60px 40px;
+        display:grid;
+        place-items:center;
+        gap:20px;
+    }
+
+    .offer-section button{
+        background:#3d5568;
+        color:white;
+        padding:15px 35px;
+        border:0;
+        border-radius:5px;
+        font-size:15px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    .why-choose{
+        background:#5fc9b4;
+        color:white;
+        padding:60px 40px;
+    }
+
+    .why-choose ul{
+        display:grid;
+        gap:10px;
+        margin-top:15px;
+    }
+
+    .why-choose li::before{
+        content:'✓ ';
+        font-weight:700;
+    }
+
+
+    footer{
+        background:#2c3e50;
+        color:white;
+        padding:40px 20px;
+        text-align:center;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media(max-width:900px){
+        .about-section{grid-template-columns:1fr}
+        .bottom-sections{grid-template-columns:1fr}
+    }
+
+    @media(max-width:768px){
+        nav{
+            display:none;
+            flex-direction:column;
+            background:#ff6b6b;
+            position:absolute;
+            top:60px;
+            right:20px;
+            width:150px;
+            padding:15px;
+            border-radius:10px;
+            text-align:center;
+        }
+
+        nav.active{
+            display:flex;
+        }
+
+        .hamburger{display:flex}
+        header{
+            grid-template-columns:auto 1fr auto;
+            background:#ff6b6b;
+        }
+        .logo{background:none}
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">yashvant</div>
+
+    <nav id="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <h1>Welcome to Our Site</h1>
+    <p>Discover amazing experiences</p>
+</section>
+
+<section class="about-section" id="about">
+    <div class="about-content">
+        <h2>About Our Company</h2>
+        <p>We provide exceptional service and modern solutions for your needs.</p>
+        <p>Our team works tirelessly to ensure customer satisfaction.</p>
+        <p>We help businesses grow with strategies that work.</p>
+    </div>
+    <div class="about-image"></div>
+</section>
+
+<section class="bottom-sections">
+    <div class="offer-section" id="services">
+        <h2>Special Offer!</h2>
+        <button>Get Started Today</button>
+    </div>
+
+    <div class="why-choose" id="contact">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>24/7 Customer Support</li>
+            <li>Industry Leading Experts</li>
+            <li>Satisfaction Guaranteed</li>
+        </ul>
+    </div>
+</section>
+git init
+
+<footer>
+    <p>© Developed by Yashvant</p>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById('menu').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
